@@ -24,7 +24,7 @@ export function History() {
 
     return (
         <>
-            <h2>historique</h2>
+            <h2 className="text-2xl font-semibold mt-8">historique</h2>
             {data.map((save, index) => (
                 <div key={index}>
                     {save.ison}
