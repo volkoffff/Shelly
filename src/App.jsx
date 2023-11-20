@@ -7,6 +7,7 @@ import { Modal } from './Components/Modal';
 
 const App = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const [temp, setTemp] = useState(0);
 
   // const shellyApiUrl = 'http://192.168.1.100';
 
@@ -21,6 +22,7 @@ const App = () => {
       // const response = await axios.get(`${shellyApiUrl}/relay/0`);
       const response = await axios.get(`${serverUri}/device/status?id=${deviceId}&auth_key=${authKey}`);
       setIsSwitchOn(response.data.data.device_status.relays[0].ison);
+      setTemp(response.data.data.device_status.temperature)
     } catch (error) {
       console.error('Erreur lors de la récupération de l\'état de l\'interrupteur Shelly', error);
     }
@@ -105,7 +107,7 @@ const App = () => {
 
         <div className='mx-4 pb-2 relative z-10'>
           <p className='font-semibold tet-slate-900'>Shelly lampe h111</p>
-          <p className='text-slate-400 '>28°C</p>
+          <p className='text-slate-400 '>{temp}°C</p>
         </div>
 
         <div className='text-[250px] -right-24 absolute z-0 text-slate-200/50 flex-1 flex justify-center items-center'>
