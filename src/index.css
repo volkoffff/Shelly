@@ -12,6 +12,9 @@
 .pop-animation {
   animation: pop 0.2s ease-out;
 }
+.pop-animation2 {
+  animation: pop2 0.2s ease-out;
+}
 
 @keyframes pop {
   from {
@@ -19,5 +22,17 @@
   }
   to {
     scale: 100%;
+  }
+}
+@keyframes pop2 {
+  from {
+    scale: 95%;
+    opacity: 0.5;
+    transform: translateY(20px);
+  }
+  to {
+    scale: 100%;
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
